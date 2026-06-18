@@ -1,5 +1,5 @@
 import path from "path";
-import index from "../../index.js";
+import index from "../../../index.js";
 
 const startFunc = async () => {
     await index({

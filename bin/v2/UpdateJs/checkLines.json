@@ -9,15 +9,15 @@
             ]
         },
         "useLines": {
-            "toInsertLine": "router.get('/${endpoint}', (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
-            "duplicationCheck": "router.get('/${endpoint}'",
+            "toInsertLine": "router.post('/${endpoint}', (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
+            "duplicationCheck": "router.post('/${endpoint}'",
             "insertAfter": [
                 "router.",
                 "const router = "
             ]
         }
     },
-    "withParams": {
+    "bodyParse": {
         "importLines": {
             "toInsertLine": "import funcFrom${folderName} from './${folderName}/controller.js';",
             "duplicationCheck": "from './${folderName}/controller.js'",
@@ -27,8 +27,8 @@
             ]
         },
         "useLines": {
-            "toInsertLine": "router.get('/${endpoint}/:pk', (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
-            "duplicationCheck": "router.get('/${endpoint}'",
+            "toInsertLine": "router.post('/${endpoint}/:pk', express.json(), (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
+            "duplicationCheck": "router.post('/${endpoint}'",
             "insertAfter": [
                 "router.",
                 "const router = "
