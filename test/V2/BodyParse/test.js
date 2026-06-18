@@ -7,7 +7,7 @@ const startFunc = async () => {
         endPointsJsPath: path.join(process.cwd(), "end-points.js"),
         inActionName: "ToTest",
         inFolderName: "Fold1",
-        inGetType: "withParams"
+        inGetType: "bodyParse"
     });
 };
 
