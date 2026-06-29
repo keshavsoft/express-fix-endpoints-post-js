@@ -6,7 +6,14 @@ const alterLines = ({ inActionName, inFolderName, inGetType }) => {
     let localCheckLines = checkLinesData[inGetType];
     // console.log("aaaaaaaaaa : ", inActionName, inFolderName, inGetType);
 
-    localCheckLines.importLines.toInsertLine = localCheckLines.importLines.toInsertLine.replaceAll("${folderName}", inFolderName);
+    if (Array.isArray(localCheckLines.importLines.toInsertLine)) {
+        localCheckLines.importLines.toInsertLine = localCheckLines.importLines.toInsertLine.map(element => {
+            return element.replaceAll("${folderName}", inFolderName);
+        });
+    } else {
+        localCheckLines.importLines.toInsertLine = localCheckLines.importLines.toInsertLine.replaceAll("${folderName}", inFolderName);
+    };
+
     localCheckLines.importLines.duplicationCheck = localCheckLines.importLines.duplicationCheck.replaceAll("${folderName}", inFolderName).replaceAll("'", '"');
 
     localCheckLines.useLines.toInsertLine = localCheckLines.useLines.toInsertLine.replaceAll("${endpoint}", inActionName);
