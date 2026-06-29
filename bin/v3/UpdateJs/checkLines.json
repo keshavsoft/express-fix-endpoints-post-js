@@ -52,5 +52,24 @@
                 "const router = "
             ]
         }
+    },
+    "withMiddleware": {
+        "importLines": {
+            "toInsertLine": "import funcFrom${folderName} from './${folderName}/controller.js';",
+            "duplicationCheck": "from './${folderName}/controller.js'",
+            "insertAfter": [
+                "import funcFrom",
+                "import express"
+            ]
+        },
+        "useLines": {
+            "toInsertLine1": "router.post('/${endpoint}/:pk', express.json(), (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
+            "toInsertLine": "router.post('/${endpoint}/:columnName', express.json(), checkColumnName({ inConfigPath: configPath }), checkColumnsToSum({ inConfigPath: configPath }), (req, res) => funcFrom${endpoint}({ req, res, inTablePath: tablePath }));",
+            "duplicationCheck": "router.post('/${endpoint}'",
+            "insertAfter": [
+                "router.",
+                "const router = "
+            ]
+        }
     }
 }
