@@ -67,7 +67,7 @@
         },
         "useLines": {
             "toInsertLine1": "router.post('/${endpoint}/:pk', express.json(), (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
-            "toInsertLine": "router.post('/${endpoint}/:columnName', express.json(), checkColumnName({ inConfigPath: configPath }), checkColumnsToSum({ inConfigPath: configPath }), (req, res) => funcFrom${endpoint}({ req, res, inTablePath: tablePath }));",
+            "toInsertLine": "router.post('/${endpoint}/:columnName', express.json(), checkColumnName({ inConfigPath: configPath }), checkColumnsToSum({ inConfigPath: configPath }), (req, res) => funcFrom${folderName}({ req, res, inTablePath: tablePath }));",
             "duplicationCheck": "router.post('/${endpoint}'",
             "insertAfter": [
                 "router.",
